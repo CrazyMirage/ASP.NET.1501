@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polynom", "Polynom\Polynom.csproj", "{406BC19A-06D4-4ABE-931B-5CAE27B233AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMath", "Math\CustomMath.csproj", "{C2510D9C-4FAA-4B3B-98F2-9B6BE5C43A57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolynomTests", "PolynomTests\PolynomTests.csproj", "{EA97B742-59C9-46FC-BBE0-DF5E3259A5EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{406BC19A-06D4-4ABE-931B-5CAE27B233AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{406BC19A-06D4-4ABE-931B-5CAE27B233AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{406BC19A-06D4-4ABE-931B-5CAE27B233AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{406BC19A-06D4-4ABE-931B-5CAE27B233AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2510D9C-4FAA-4B3B-98F2-9B6BE5C43A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2510D9C-4FAA-4B3B-98F2-9B6BE5C43A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2510D9C-4FAA-4B3B-98F2-9B6BE5C43A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2510D9C-4FAA-4B3B-98F2-9B6BE5C43A57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA97B742-59C9-46FC-BBE0-DF5E3259A5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA97B742-59C9-46FC-BBE0-DF5E3259A5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA97B742-59C9-46FC-BBE0-DF5E3259A5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA97B742-59C9-46FC-BBE0-DF5E3259A5EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
