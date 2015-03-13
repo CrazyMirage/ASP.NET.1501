@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixSortRefactor", "MatrixSortRefactor\MatrixSortRefactor.csproj", "{1DD5F888-D2D4-4CE2-92B6-73C4A2AF4136}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTests", "MatrixTests\MatrixTests.csproj", "{8ABD0704-FF1B-4153-B771-9EB19F2C51D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopModel", "ToRefactoring\ShopModel\ShopModel.csproj", "{8927D218-DE98-4F50-95C0-6B1C0573D659}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DD5F888-D2D4-4CE2-92B6-73C4A2AF4136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD5F888-D2D4-4CE2-92B6-73C4A2AF4136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD5F888-D2D4-4CE2-92B6-73C4A2AF4136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD5F888-D2D4-4CE2-92B6-73C4A2AF4136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ABD0704-FF1B-4153-B771-9EB19F2C51D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ABD0704-FF1B-4153-B771-9EB19F2C51D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ABD0704-FF1B-4153-B771-9EB19F2C51D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABD0704-FF1B-4153-B771-9EB19F2C51D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8927D218-DE98-4F50-95C0-6B1C0573D659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8927D218-DE98-4F50-95C0-6B1C0573D659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8927D218-DE98-4F50-95C0-6B1C0573D659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8927D218-DE98-4F50-95C0-6B1C0573D659}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
