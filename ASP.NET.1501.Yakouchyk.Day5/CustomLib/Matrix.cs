@@ -17,6 +17,12 @@ namespace Custom
     {
         static public void Sort<T>(T[] matrix, IComparator<T> comparator)
         {
+            if (matrix == null)
+                throw new ArgumentNullException("matrix");
+
+            if (comparator == null)
+                throw new ArgumentNullException("comparator");
+
             for (int i = 0; i < matrix.Length; i++)
                 for (int j = i; j < matrix.Length; j++)
                 {

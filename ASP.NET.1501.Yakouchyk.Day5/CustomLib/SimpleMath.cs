@@ -9,8 +9,13 @@ namespace Custom
 {
     public static class SimpleMath
     {
-        public static double Root(double number, uint n, double eps = 0.001)
+        public static double Root(double number, int n, double eps = 0.001)
         {
+            if (n < 0)
+                throw new ArgumentOutOfRangeException("n", "Not a positive value");
+            if (number < 0 && n % 2 == 0)
+                throw new ArgumentException("Even degree root of a negative number");
+
             if (number == 0 || number == 1 || n == 1)
                 return number;
 
@@ -24,8 +29,10 @@ namespace Custom
             return nextX;
         }
 
-        public static double Pow(double number, uint n)
+        public static double Pow(double number, int n)
         {
+            if(n < 0)
+                throw new ArgumentOutOfRangeException("n", "Not a positive value");
             double result = 1;
             for (int i = 0; i < n; i++)
                 result *= number;
@@ -37,7 +44,7 @@ namespace Custom
             Stopwatch sw = Stopwatch.StartNew();
             int result = GCD(elements);
             sw.Stop();
-            time = sw.ElapsedMilliseconds;
+            time = sw.ElapsedTicks;
             return result;
         }
 
@@ -46,7 +53,7 @@ namespace Custom
             a = Math.Abs(a);
             b = Math.Abs(b);
             if (a < b)
-                Swap(ref a, ref b);
+                Swaper.Swap(ref a, ref b);
             int temp;
             do
             {
@@ -60,6 +67,8 @@ namespace Custom
 
         public static int GCD(params int[] elements)
         {
+            if (elements == null)
+                throw new ArgumentNullException("elements");
             if (elements.Length > 0)
             {
                 if (elements.Length > 1)
@@ -75,7 +84,7 @@ namespace Custom
                     return Math.Abs(elements[0]);
             }
             else
-                throw new Exception("Not enough parametrs");
+                throw new ArgumentException("Not enough parametrs");
         }
 
         public static int BinaryGCD(int a, int b)
@@ -121,6 +130,8 @@ namespace Custom
 
         public static int BinaryGCD(params int[] elements)
         {
+            if (elements == null)
+                throw new ArgumentNullException("elements");
             if (elements.Length > 0)
             {
                 if (elements.Length > 1)
@@ -136,14 +147,7 @@ namespace Custom
                     return Math.Abs(elements[0]);
             }
             else
-                throw new Exception("Not enough parametrs");
-        }
-
-        private static void Swap(ref int a, ref int b)
-        {
-            int temp = a;
-            a = b;
-            b = temp;
+                throw new ArgumentException("Not enough parametrs");
         }
     }
 }
