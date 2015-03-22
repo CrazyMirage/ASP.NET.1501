@@ -16,7 +16,7 @@ namespace CustomMath
             for (int i = 0; i < repeat; i++)
                 testFunction(args);
             sw.Stop();
-            return sw.ElapsedMilliseconds;
+            return sw.ElapsedTicks;
         }
     }
 }

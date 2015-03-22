@@ -15,10 +15,10 @@ namespace SpeedTest
             int a = 175081;
             int b = 175993;
             int c = 173189;
-            long time = SpeedTester.Test(10000, SimpleMath.GCD, a, b, c);
+            long time = SpeedTester.Test(1, SimpleMath.GCD, a, b, c);
             Console.WriteLine(time);
 
-            time = SpeedTester.Test(10000, SimpleMath.BinaryGCD, a, b, c);
+            time = SpeedTester.Test(1, SimpleMath.BinaryGCD, a, b, c);
             Console.WriteLine(time);
             Console.ReadLine();
         }

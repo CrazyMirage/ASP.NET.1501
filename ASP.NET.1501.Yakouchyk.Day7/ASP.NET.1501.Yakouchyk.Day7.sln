@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer", "Timer\Timer.csproj", "{A52699A1-BF33-42F2-80E3-D423D83BE2C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerUI", "TimerUI\TimerUI.csproj", "{DC9D606A-DE7C-48A7-87C6-A76836DA2A86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLib", "CustomLib\CustomLib.csproj", "{6B261908-344B-4796-B91B-33C7883E9355}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLibTests", "CustomLibTests\CustomLibTests.csproj", "{BAAA4580-B357-4301-9D0F-67BBBD2EFBC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary", "BookLibrary\BookLibrary.csproj", "{1238E5E6-FA86-4E56-8311-12D39DF8CD4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookUI", "BookUI\BookUI.csproj", "{0D4E7094-49AA-4253-A329-E86B26F74F7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A52699A1-BF33-42F2-80E3-D423D83BE2C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A52699A1-BF33-42F2-80E3-D423D83BE2C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A52699A1-BF33-42F2-80E3-D423D83BE2C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A52699A1-BF33-42F2-80E3-D423D83BE2C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9D606A-DE7C-48A7-87C6-A76836DA2A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9D606A-DE7C-48A7-87C6-A76836DA2A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9D606A-DE7C-48A7-87C6-A76836DA2A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9D606A-DE7C-48A7-87C6-A76836DA2A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B261908-344B-4796-B91B-33C7883E9355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B261908-344B-4796-B91B-33C7883E9355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B261908-344B-4796-B91B-33C7883E9355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B261908-344B-4796-B91B-33C7883E9355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAAA4580-B357-4301-9D0F-67BBBD2EFBC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAAA4580-B357-4301-9D0F-67BBBD2EFBC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAAA4580-B357-4301-9D0F-67BBBD2EFBC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAAA4580-B357-4301-9D0F-67BBBD2EFBC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1238E5E6-FA86-4E56-8311-12D39DF8CD4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1238E5E6-FA86-4E56-8311-12D39DF8CD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1238E5E6-FA86-4E56-8311-12D39DF8CD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1238E5E6-FA86-4E56-8311-12D39DF8CD4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D4E7094-49AA-4253-A329-E86B26F74F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D4E7094-49AA-4253-A329-E86B26F74F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D4E7094-49AA-4253-A329-E86B26F74F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D4E7094-49AA-4253-A329-E86B26F74F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

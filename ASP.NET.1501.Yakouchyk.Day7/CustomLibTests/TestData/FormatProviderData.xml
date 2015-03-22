@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<TestCases>
+  <TestCase>
+    <Value>-123</Value>
+    <Arg>hex</Arg>
+    <ExpectedResult>-7B</ExpectedResult>
+  </TestCase> 
+  <TestCase>
+    <Value>456</Value>
+    <Arg>hex</Arg>
+    <ExpectedResult>1C8</ExpectedResult>
+  </TestCase> 
+  <TestCase>
+    <Value>0</Value>
+    <Arg>hex</Arg>
+    <ExpectedResult>0</ExpectedResult>
+  </TestCase>
+  <TestCase>
+    <Value>123</Value>
+    <Arg>D5</Arg>
+    <ExpectedResult>00123</ExpectedResult>
+  </TestCase>
+</TestCases>

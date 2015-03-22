@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<TestCases>
+  <RootTestCase>
+    <Number>465</Number>
+    <Power>5</Power>
+    <Eps>0.000001</Eps>
+    <ExpectedResult>3.415785499667785</ExpectedResult>
+  </RootTestCase>
+  <RootTestCase>
+    <Number>-465</Number>
+    <Power>5</Power>
+    <Eps>0.000001</Eps>
+    <ExpectedResult>-3.415785499667785</ExpectedResult>
+  </RootTestCase>
+  <RootTestCase>
+    <Number>16</Number>
+    <Power>2</Power>
+    <Eps>0</Eps>
+    <ExpectedResult>4</ExpectedResult>
+  </RootTestCase>
+  <RootTestCase>
+    <Number>0</Number>
+    <Power>5</Power>
+    <Eps>0</Eps>
+    <ExpectedResult>0</ExpectedResult>
+  </RootTestCase>
+  <RootTestCase>
+    <Number>2</Number>
+    <Power>1</Power>
+    <Eps>0.000001</Eps>
+    <ExpectedResult>2</ExpectedResult>
+  </RootTestCase>
+
+
+
+  <PowTestCase>
+    <Number>2</Number>
+    <Power>1</Power>
+    <ExpectedResult>2</ExpectedResult>
+  </PowTestCase>
+
+  <PowTestCase>
+    <Number>2</Number>
+    <Power>0</Power>
+    <ExpectedResult>1</ExpectedResult>
+  </PowTestCase>
+  
+  <PowTestCase>
+    <Number>-3</Number>
+    <Power>2</Power>
+    <ExpectedResult>9</ExpectedResult>
+  </PowTestCase>
+  
+
+</TestCases>
