@@ -6,32 +6,30 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
-    public class SquareMatrix<T>
+    public class SquareMatrix<T> : AbstractSquareMatrix<T>
     {
-        protected T[,] matrix;
-        public int Size { get; private set; }
+        protected T[] matrix;
 
-
-        public event EventHandler<ElementChengedEventArgs> ElementChanged = delegate { };
+        protected SquareMatrix() { }
 
         public SquareMatrix(int size)
         {
-            matrix = new T[size, size];
+            matrix = new T[size*size];
             Size = size;
         }
 
-        protected virtual void OnElementChanged(int i, int j)
+        public bool Exist(int i, int j)
         {
-            ElementChanged(this, new ElementChengedEventArgs(i, j));
+            return i >= 0 && j >= 0 && i < Size && j < Size;
         }
 
-        public virtual T this[int i, int j]
+        public override T this[int i, int j]
         {
             get
             {
-                if (i >= 0 && j >= 0 && i < Size && j < Size)
+                if (Exist(i,j))
                 {
-                    return matrix[i, j];
+                    return matrix[(i * Size) + j];
                 }
                 else
                     throw new ArgumentOutOfRangeException();
@@ -39,10 +37,10 @@ namespace Matrix
 
             set
             {
-                if (i >= 0 && j >= 0 && i < Size && j < Size)
+                if (Exist(i, j))
                 {
-                    matrix[i, j] = value;
-                    OnElementChanged(i, j);
+                    matrix[(i * Size) + j] = value;
+                    OnElementChanged(new ElementChengedEventArgs(i, j));
                 }
                 else
                     throw new ArgumentOutOfRangeException();

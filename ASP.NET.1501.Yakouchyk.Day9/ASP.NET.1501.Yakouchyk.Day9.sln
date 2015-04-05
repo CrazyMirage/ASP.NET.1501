@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree", "Tree\Tree.csproj", "{EC16BA73-9A33-4FBC-AA1E-4B5077B39CDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeTests", "TreeTests\TreeTests.csproj", "{2941B18B-DB45-4E85-AFC2-8C3277E42E99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{5F08B0EA-84DD-42A0-AF8A-63A09E8F7AF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC16BA73-9A33-4FBC-AA1E-4B5077B39CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC16BA73-9A33-4FBC-AA1E-4B5077B39CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC16BA73-9A33-4FBC-AA1E-4B5077B39CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC16BA73-9A33-4FBC-AA1E-4B5077B39CDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2941B18B-DB45-4E85-AFC2-8C3277E42E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2941B18B-DB45-4E85-AFC2-8C3277E42E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2941B18B-DB45-4E85-AFC2-8C3277E42E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2941B18B-DB45-4E85-AFC2-8C3277E42E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F08B0EA-84DD-42A0-AF8A-63A09E8F7AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F08B0EA-84DD-42A0-AF8A-63A09E8F7AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F08B0EA-84DD-42A0-AF8A-63A09E8F7AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F08B0EA-84DD-42A0-AF8A-63A09E8F7AF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

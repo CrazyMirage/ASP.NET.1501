@@ -9,22 +9,31 @@ namespace Matrix
     public class DiagonalMatrix<T> : SquareMatrix<T>
     {
         public DiagonalMatrix(int size)
-            : base(size)
         {
-
+            matrix = new T[size];
+            Size = size;
         }
 
         public override T this[int i, int j]
         {
             get
             {
-                return base[i, j];
+                if (Exist(i, j))
+                {
+                    if (i == j)
+                        return matrix[i];
+                    else
+                        return default(T);
+                }
+                else
+                    throw new ArgumentOutOfRangeException();
             }
+
             set
             {
-                if (i != j)
+                if (i != j || !Exist(i, j))
                     throw new ArgumentOutOfRangeException();
-                base[i, j] = value;
+                matrix[i] = value;
             }
         }
     }

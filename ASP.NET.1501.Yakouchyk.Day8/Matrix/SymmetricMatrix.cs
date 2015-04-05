@@ -9,21 +9,41 @@ namespace Matrix
     public class SymmetricMatrix<T> : SquareMatrix<T>
     {
         public SymmetricMatrix(int size)
-            : base(size)
         {
-
+            matrix = new T[(size + 1) * size / 2];
+            Size = size;
         }
 
         public override T this[int i, int j]
         {
             get
             {
-                return base[i, j];
+                if (Exist(i, j))
+                {
+                    if (i >= j) 
+                    {
+                        return matrix[(i + 1) * i / 2 + j];
+                    }
+                    else
+                    {
+                        return matrix[(j + 1) * j / 2 + i];
+                    }
+                }
+                else
+                    throw new ArgumentOutOfRangeException();
             }
             set
             {
-                base[i, j] = value;
-                base[j, i] = value;
+                if (!Exist(i, j))
+                    throw new ArgumentOutOfRangeException();
+                if (i >= j)
+                {
+                    matrix[(i + 1) * i / 2 + j] = value;
+                }
+                else
+                {
+                    matrix[(j + 1) * j / 2 + i] = value;
+                }
             }
         }
     }

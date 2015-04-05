@@ -10,16 +10,24 @@ namespace Fibonacci
     {
         public static IEnumerable<int> GetNumbers(int count)
         {
+            if (count <= 0)
+                throw new ArgumentOutOfRangeException("count", "Too small");
+            if (count > 47)
+                throw new ArgumentOutOfRangeException("count", "Too big");
+
             int previous = 0;
             yield return previous;
-            int current = 1;
-            yield return current;
-            for (int i = 2; i < count; i++)
+            if (count > 1)
             {
-                int temp;
-                yield return temp = current + previous;
-                previous = current;
-                current = temp;
+                int current = 1;
+                yield return current;
+                for (int i = 2; i < count; i++)
+                {
+                    int temp;
+                    yield return temp = current + previous;
+                    previous = current;
+                    current = temp;
+                }
             }
         }
     }
