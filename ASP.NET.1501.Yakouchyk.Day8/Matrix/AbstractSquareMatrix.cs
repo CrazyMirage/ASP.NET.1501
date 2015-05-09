@@ -10,6 +10,8 @@ namespace Matrix
     {
         public event EventHandler<ElementChengedEventArgs> ElementChanged = delegate { };
 
+        public delegate void Custom(int a, int b);
+
         public int Size { get; protected set; }
 
         abstract public T this[int i, int j] { get; set; }
