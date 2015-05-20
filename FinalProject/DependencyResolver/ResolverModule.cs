@@ -22,20 +22,20 @@ namespace DependencyResolver
         public override void Load()
         {
             Bind<IRepository<DalUser>>().To<UserRepository>().InRequestScope();
-            Bind<IRepository<DalRole>>().To<RoleRepository>().InRequestScope(); ;
+            Bind<IRepository<DalRole>>().To<RoleRepository>().InRequestScope();
 
-            Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope(); ;
+            Bind<IUserConnectedRepository<DalPhoto>>().To<PhotoRepository>().InRequestScope();
+            Bind<IPhotoRepository>().To<PhotoRepository>().InRequestScope();
 
-            Bind<IAccountService>().To<AccountService>().InRequestScope(); ;
+            Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
+
+            Bind<IAccountService>().To<AccountService>();
+            Bind<IPhotoService>().To<PhotoService>();
 
             Bind<DbContext>().To<GalleryModel>().InRequestScope();
 
-            //Unbind<ModelValidatorProvider>();
 
-            //Bind<DbContext>().To<EntityModel>().InSingletonScope(); ///bad way. we coudn't make dispose 
-            //Bind<IUserRepository>().To<UserRepository>();
-            //Bind<IUnitOfWork>().To<UnitOfWork>();
-            //Bind<IUserService>().To<UserService>();
+
         }
     }
 }
