@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BLL.Interfacies.Entities.Photo>
+
+@{
+    ViewBag.Title = "Index2";
+}
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+
+            @foreach (var group in Model.Select((e, i) => new { Item = e, Grouping = (i / 3) }).GroupBy(e => e.Grouping))
+            {
+                <div class="row">
+                    @foreach (var photo in group)
+                    {
+                        <div class="col-md-4">
+                            <div class="well" align ="center">
+                                <a href=@Url.Action("Details", "Photo", new { id = photo.Item.Id })>
+                                    <img class="thumbnail img-responsive" src=@Url.Content(@photo.Item.PhotoLink) style="max-height: 400px"/>
+                                </a>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

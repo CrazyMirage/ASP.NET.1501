@@ -1,0 +1,50 @@
+﻿@model BLL.Interfacies.Entities.Photo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Photo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotoLink)
+    </div>
+    <div>
+        <img src=@Url.Content(@Model.PhotoLink) alt=""><p></p>
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedDateTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDateTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LikesNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LikesNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
