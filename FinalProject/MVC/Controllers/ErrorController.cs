@@ -25,5 +25,10 @@ namespace MVC.Controllers
         {
             return View();
         }
+
+        public ActionResult FileNotSelected()
+        {
+            return View();
+        }
     }
 }

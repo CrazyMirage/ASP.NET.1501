@@ -5,3 +5,15 @@
 img.full{
     max-width: 100%
 }
+
+.next{
+    float: right
+}
+
+.previous{
+    float: left
+}
+
+.image-description{
+    margin-bottom: 10px;
+}

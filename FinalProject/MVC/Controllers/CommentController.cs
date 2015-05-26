@@ -25,14 +25,18 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult Add(int id, string comment, int last)
         {
-            commentService.AddComment(new Comment()
+            if (!string.IsNullOrWhiteSpace(comment))
+            {
+                commentService.AddComment(new Comment()
                 {
-                Author = User.Identity.Name,
-                Text = comment
+                    Author = User.Identity.Name,
+                    Text = comment
                 }, id);
 
-            var comments = commentService.GetCommentsByPhoto(id, last) ;
-            return Json(comments);
+                var comments = commentService.GetCommentsByPhoto(id, last);
+                return Json(comments);
+            }
+            return Json(null);
         }
 
 

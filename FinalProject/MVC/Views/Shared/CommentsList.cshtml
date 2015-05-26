@@ -5,7 +5,9 @@
     <div class="comment">
         <div class="detail">
             @comment.Author
-            @comment.CreatedDateTime
+            <span style="float:right">
+                @comment.CreatedDateTime.ToString("dd MMMM yyyy")
+            </span>
         </div>
         <div class="comment-text">
             @comment.Text

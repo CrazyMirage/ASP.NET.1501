@@ -6,6 +6,6 @@
 
 @using (Html.BeginForm("AddPhoto", "Photo", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" name="file" />
+    <input type="file" name="file" accept="image/*" />
     <input type="submit" value="OK" />
 }

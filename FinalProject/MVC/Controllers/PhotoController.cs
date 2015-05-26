@@ -38,6 +38,10 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult AddPhoto(HttpPostedFileBase file)
         {
+            if (file == null)
+            {
+                return RedirectToAction("FileNotSelected", "Error");
+            }
             var photo = photoService.AddPhoto(new PhotoSaver(file, Server.MapPath(WebConfigurationManager.AppSettings["StoragePath"])), User.Identity.Name);
             return View("Edit",new PhotoEditModel() { Id = photo.Id, PhotoUrl = photo.ResolveLink().PhotoLink });
         }

@@ -26,11 +26,15 @@
         <div>
             @if (!Model.PageStatus.PageFirst)
             {
-                @Html.ActionLink("Previous", "Page", "Photo", new { page = Model.PageStatus.PageNumber - 1 }, new { @class = "btn btn-default"})
+                <div class="previous">
+                    @Html.ActionLink("Previous", "Page", "Photo", new { page = Model.PageStatus.PageNumber - 1 }, new { @class = "btn btn-default" })
+                </div>
             }
             @if (!Model.PageStatus.PageLast)
             {
-                @Html.ActionLink("Next", "Page", "Photo", new { page = Model.PageStatus.PageNumber + 1 }, new { @class = "btn btn-default"})
+                <div class="next">
+                    @Html.ActionLink("Next", "Page", "Photo", new { page = Model.PageStatus.PageNumber + 1 }, new { @class = "btn btn-default" })
+                </div>
             }
 
         </div>

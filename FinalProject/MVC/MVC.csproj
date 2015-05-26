@@ -297,6 +297,7 @@
     <Content Include="Views\Error\UnexpectedError.cshtml" />
     <Content Include="Views\Error\WrongPermission.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\FileNotSelected.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
