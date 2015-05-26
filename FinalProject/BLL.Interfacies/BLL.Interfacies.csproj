@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\Like.cs" />
     <Compile Include="Entities\Photo.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="IFileSaver.cs" />

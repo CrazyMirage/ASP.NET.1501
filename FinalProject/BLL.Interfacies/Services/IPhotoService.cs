@@ -9,8 +9,8 @@ namespace BLL.Interfacies.Services
 {
     public interface IPhotoService
     {
-        IEnumerable<Photo> GetPhotos(int size, int page);
-        IEnumerable<Photo> GetPhotosByUser(string username, int size,  int page);
+        IEnumerable<Photo> GetPhotos(int size, int page, out int allRequestSize);
+        IEnumerable<Photo> GetPhotosByUser(string username, int size, int page, out int allRequestSize);
         Photo GetPhoto(int photoId);
         void EditDescription(int photoId, string description);
         Photo AddPhoto(IFileSaver photo, string username);

@@ -24,13 +24,16 @@ namespace DependencyResolver
             Bind<IRepository<DalUser>>().To<UserRepository>().InRequestScope();
             Bind<IRepository<DalRole>>().To<RoleRepository>().InRequestScope();
 
-            Bind<IUserConnectedRepository<DalPhoto>>().To<PhotoRepository>().InRequestScope();
             Bind<IPhotoRepository>().To<PhotoRepository>().InRequestScope();
+            Bind<IRepository<DalLike>>().To<LikeRepository>().InRequestScope();
+            Bind<IUserConnectedRepository<DalComment>>().To<CommentRepository>().InRequestScope();
 
             Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
 
             Bind<IAccountService>().To<AccountService>();
             Bind<IPhotoService>().To<PhotoService>();
+            Bind<IPhotoLikeService>().To<LikeService>();
+            Bind<IPhotoCommentService>().To<CommentService>();
 
             Bind<DbContext>().To<GalleryModel>().InRequestScope();
 

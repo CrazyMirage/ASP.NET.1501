@@ -25,18 +25,6 @@ namespace DAL.Mappers
             };
         }
 
-        private static readonly Expression<Func<Comment, DalComment>> toDal = comment => new DalComment()
-        {
-            Id = comment.Id,
-            PhotoId = comment.PhotoId,
-            UserId = comment.UserId,
-            CreatedDateTime = comment.CreatedDateTime,
-            Text = comment.Text,
-            ParentComment = comment.ParentComment
-        };
-
-        public static Expression<Func<Comment, DalComment>> ToDalExpression { get { return toDal; } }
-
         public static void ToOrmComment(this DalComment comment, Comment exit)
         {
             if (comment == null || exit == null)
@@ -48,9 +36,23 @@ namespace DAL.Mappers
             exit.ParentComment = comment.ParentComment;
         }
 
-        public static DalComment ToDalComment(this Comment comment)
+
+        private static readonly Expression<Func<Comment, User, DalComment>> toDal = (comment, user) => new DalComment()
         {
-            if (comment == null)
+            Id = comment.Id,
+            PhotoId = comment.PhotoId,
+            UserId = comment.UserId,
+            CreatedDateTime = comment.CreatedDateTime,
+            Text = comment.Text,
+            ParentComment = comment.ParentComment,
+            Author = user.UserName
+        };
+
+        public static Expression<Func<Comment, User, DalComment>> ToDalExpression { get { return toDal; } }
+
+        public static DalComment ToDalComment(this Comment comment, User user)
+        {
+            if (comment == null || user == null)
                 return null;
             return new DalComment()
             {
@@ -59,7 +61,8 @@ namespace DAL.Mappers
                 UserId = comment.UserId,
                 CreatedDateTime = comment.CreatedDateTime,
                 Text = comment.Text,
-                ParentComment = comment.ParentComment
+                ParentComment = comment.ParentComment,
+                Author = user.UserName
             };
         }
     }

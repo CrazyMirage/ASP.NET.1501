@@ -9,6 +9,8 @@ namespace DAL.Interfacies.DTO
     public class DalComment : IEntity
     {
         public int Id { get; set; }
+
+        public string Author { get; set; }
         
         public int UserId { get; set; }
 

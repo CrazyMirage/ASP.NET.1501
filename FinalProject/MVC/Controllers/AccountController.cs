@@ -23,6 +23,7 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult Login(LogOnModel model, string returnUrl)
         {
+            
             if (ModelState.IsValid)
             {
                 if (Membership.ValidateUser(model.UserName, model.Password))

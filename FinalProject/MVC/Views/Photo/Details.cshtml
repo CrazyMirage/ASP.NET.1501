@@ -1,4 +1,4 @@
-﻿@model BLL.Interfacies.Entities.Photo
+﻿@model MVC.Models.PhotoModel
 
 @{
     ViewBag.Title = "Details";
@@ -10,41 +10,96 @@
     <legend>Photo</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.UserName)
+        @Html.DisplayNameFor(model => model.UserName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.UserName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.PhotoLink)
+        @Html.DisplayNameFor(model => model.PhotoLink)
     </div>
     <div>
-        <img src=@Url.Content(@Model.PhotoLink) alt=""><p></p>
+        <img class="full" src=@Url.Content(@Model.PhotoLink) alt=""><p></p>
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.CreatedDateTime)
+        @Html.DisplayNameFor(model => model.CreatedDateTime)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CreatedDateTime)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.LikesNumber)
+        @Html.DisplayNameFor(model => model.LikesNumber)
     </div>
-    <div class="display-field">
+    <div id="likes" class="display-field">
         @Html.DisplayFor(model => model.LikesNumber)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Title)
+        @Html.DisplayNameFor(model => model.Title)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Title)
     </div>
+
+
+    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+        <div>
+
+            @using (Ajax.BeginForm("LikeResolve", "Like", new AjaxOptions()
+            {
+                UpdateTargetId = "likes",
+                InsertionMode = InsertionMode.Replace,
+                OnBegin = string.Format("pressLike({0})", @Model.Id)
+            }))
+            {
+
+            <input type="hidden" name="id" value=@Model.Id />
+            <input id=@Model.Id type="hidden" name="status" value=@((Model.Like ? MVC.Helpers.Status.Like : MVC.Helpers.Status.Dislike).ToString().ToLower()) />
+            @MVC.Helpers.LikeButtonHelper.LikeButton(Html, Model.Like, Model.Id)
+            }
+
+        </div>
+    }
+    <div id="comment-result">
+        @Html.Partial("CommentsList", Model.Comments)
+    </div>
+
+    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+        <div>
+            @using (Ajax.BeginForm("Add", "Comment", new AjaxOptions()
+            {
+                UpdateTargetId = "",
+                InsertionMode = InsertionMode.InsertAfter,
+                OnSuccess = "OnLoadComment"
+
+            }))
+            {
+                <input id="last" type="hidden" name="last" value="@(Model.Comments != null ? Model.Comments.Count() : 0)" />
+
+                <input type="hidden" name="id" value=@Model.Id />
+                <textarea name="comment" id="comments"></textarea>
+                <input type="submit" value="Send" />
+            }
+        </div>
+    }
+
+
+
+
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
+
+@section scripts{ @Scripts.Render("~/bundles/jqueryval") 
+     @Scripts.Render("~/bundles/Comments")
+}
+@section headscripts{ @Scripts.Render("~/bundles/Likes")}

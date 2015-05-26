@@ -27,16 +27,28 @@ namespace BLL.Services
             this.unit = unit;
         }
 
-        public IEnumerable<Photo> GetPhotos(int size, int page)
+        public IEnumerable<Photo> GetPhotos(int size, int page, out int allRequestSize)
         {
-            return photoRepository.GetAll().Skip((page - 1) * size).Take(size).Select(photo => photo.ToBllPhoto());
+            var requestResult = photoRepository.GetAll();
+            allRequestSize = requestResult.Count();
+            return requestResult
+                .OrderByDescending(x => x.CreatedDateTime)
+                .Skip((page - 1) * size)
+                .Take(size)
+                .Select(photo => photo.ToBllPhoto());
         }
 
-        public IEnumerable<Photo> GetPhotosByUser(string username, int size, int page)
+        public IEnumerable<Photo> GetPhotosByUser(string username, int size, int page, out int allRequestSize)
         {
-            return photoRepository.GetEntries(username).Skip((page - 1) * size).Take(size).Select(photo => photo.ToBllPhoto());
+            var requestResult = photoRepository.GetEntries(username);
+            allRequestSize = requestResult.Count();
+            return requestResult
+                .OrderByDescending(x => x.CreatedDateTime)
+                .Skip((page - 1) * size)
+                .Take(size)
+                .Select(photo => photo.ToBllPhoto());
         }
-
+        
         public Photo GetPhoto(int photoId)
         {
             return photoRepository.GetById(photoId).ToBllPhoto();

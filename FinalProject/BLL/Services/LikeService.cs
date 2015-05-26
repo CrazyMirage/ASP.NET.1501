@@ -1,4 +1,5 @@
 ﻿using BLL.Interfacies.Services;
+using DAL.Interfacies;
 using DAL.Interfacies.DTO;
 using DAL.Interfacies.Repositories;
 using System;
@@ -9,19 +10,43 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    class LikeService 
+    public class LikeService : IPhotoLikeService
     {
         IRepository<DalLike> likeRepository;
         IPhotoRepository photoRepository;
+        IUnitOfWork unit;
+
+        public LikeService(IPhotoRepository photoRepository, IRepository<DalLike> likeRepository, IUnitOfWork unit)
+        {
+            this.photoRepository = photoRepository;
+            this.likeRepository = likeRepository;
+            this.unit = unit;
+        }
 
         public void AddLike(string username, int photoId)
         {
-            //likeRepository.Create(new DalLike(){PhotoId = photoId, UserId = user})
+            likeRepository.Create(new DalLike() { PhotoId = photoId, User = username });
+            photoRepository.AddLike(photoId);
+            unit.Commit();
         }
 
-        public void VerifyLikeAbility(string username, int photoId)
+        public void RemoveLike(string username, int photoId)
         {
-            throw new NotImplementedException();
+            likeRepository.Delete(new DalLike() { PhotoId = photoId, User = username });
+            photoRepository.RemoveLike(photoId);
+            unit.Commit();
+        }
+        
+        public bool VerifyLikeAbility(string username, int photoId)
+        {
+            
+            var like = likeRepository.GetByPredicate(x => x.User == username && x.PhotoId == photoId);
+            return like != null;
+        }
+
+        public int NumberOfLikes(int photoId)
+        {
+            return photoRepository.GetById(photoId).LikesNumber;
         }
     }
 }

@@ -9,7 +9,8 @@ namespace BLL.Interfacies.Services
 {
     public interface IPhotoCommentService
     {
-        void AddComment(Comment comment, string username, int photoId);
+        void AddComment(Comment comment, int photoId);
         IEnumerable<Comment> GetCommentsByPhoto(int photoId);
+        IEnumerable<Comment> GetCommentsByPhoto(int photoId, int last);
     }
 }

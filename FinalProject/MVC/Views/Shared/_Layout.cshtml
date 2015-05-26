@@ -6,11 +6,18 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Bootstrap/css")
+    @Styles.Render("~/Like/css")
+    @Styles.Render("~/Image/css")
+    @Styles.Render("~/Comment/css")
+
+
     @Scripts.Render("~/bundles/modernizr")
+
+    @RenderSection("headscripts", required: false)
 </head>
 <body>
     
-    @Html.Action("Menu", "Home")
+    @Html.Partial("_Menu")
 
 
     <div class="container" style="margin-top: 50px">

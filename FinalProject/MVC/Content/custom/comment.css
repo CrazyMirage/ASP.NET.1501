@@ -1,0 +1,17 @@
+﻿div.comment{
+	border: 1px #E7E7E7 solid;
+	margin-bottom:10px;
+    border-radius: 3px;
+}
+div.detail{
+	padding-left:10px;
+	padding-top:3px;
+    padding-bottom: 3px;
+	background-color: #F8F8F8;
+	border-bottom: 1px #E7E7E7 solid;
+}
+div.comment-text{
+	padding-left:20px;
+	padding-top:5px;
+	padding-bottom:5px;
+}

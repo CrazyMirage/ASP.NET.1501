@@ -10,8 +10,10 @@ namespace BLL.Interfacies.Services
     public interface IPhotoLikeService
     {
         void AddLike(string username, int photoId);
+        void RemoveLike(string username, int photoId);
         bool VerifyLikeAbility(string username, int photoId);
-        IEnumerable<KeyValuePair<Photo, bool>> VerifyLikeAbility(string username, IEnumerable<Photo> photos);
+        int NumberOfLikes(int photoId);
+        //IEnumerable<KeyValuePair<Photo, bool>> VerifyLikeAbility(string username, IEnumerable<Photo> photos);
         //void GetLikesByUser(string username);
         //void GetLikesByPhoto(int photoId);
     }

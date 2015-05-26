@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BLL.Interfacies.Entities.Comment>
+
+@foreach (var comment in Model)
+{
+    <div class="comment">
+        <div class="detail">
+            @comment.Author
+            @comment.CreatedDateTime
+        </div>
+        <div class="comment-text">
+            @comment.Text
+        </div>
+    </div>
+}

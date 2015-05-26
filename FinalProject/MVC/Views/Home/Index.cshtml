@@ -1,9 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Gallery";
 }
 
-<h2>Index</h2>
-<p>@HttpContext.Current.User.Identity.Name</p>
-<p>@Html.ActionLink("Login", "Login", "Account")</p>
-<p>@Html.ActionLink("Register", "Register", "Account")</p>
-
+@Html.Action("PhotoPage", "Photo", new { page = 1})

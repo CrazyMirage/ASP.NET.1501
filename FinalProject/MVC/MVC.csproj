@@ -141,16 +141,24 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
+    <Compile Include="Filters\GlobalExceptionCather.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\LikeButtonHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\PhotoExtension.cs" />
     <Compile Include="Infrastructure\PhotoSaver.cs" />
     <Compile Include="Models\LogOnModel.cs" />
+    <Compile Include="Models\PageStatus.cs" />
     <Compile Include="Models\PhotoEditModel.cs" />
+    <Compile Include="Models\PhotoModel.cs" />
+    <Compile Include="Models\PhotoPageModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,6 +176,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom\comment.css" />
+    <Content Include="Content\custom\image.css" />
+    <Content Include="Content\custom\like.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -230,6 +241,8 @@
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Custom\comment.js" />
+    <Content Include="Scripts\Custom\like.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -270,15 +283,20 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index2.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Upload\Foban\WT72042S5D" />
     <Content Include="Views\Photo\AddPhoto.cshtml" />
     <Content Include="Views\Photo\Edit.cshtml" />
     <Content Include="Views\Photo\Details.cshtml" />
-    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\CommentsList.cshtml" />
+    <Content Include="Views\Photo\_PhotoPage.cshtml" />
+    <Content Include="Views\Photo\Page.cshtml" />
+    <Content Include="Views\Error\UnexpectedError.cshtml" />
+    <Content Include="Views\Error\WrongPermission.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -41,10 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappers\CommentMapper.cs" />
+    <Compile Include="Mappers\LikeMapper.cs" />
     <Compile Include="Mappers\PhotoMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\CommentService.cs" />
     <Compile Include="Services\LikeService.cs" />
     <Compile Include="Services\PhotoService.cs" />
   </ItemGroup>

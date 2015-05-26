@@ -12,23 +12,11 @@ namespace MVC.Controllers
     {
         //
         // GET: /Home/
-        IPhotoService photoService;
-
-        public HomeController(IPhotoService service)
-        {
-            photoService = service;
-        }
-
+        
         public ActionResult Index()
         {
-            var photos = photoService.GetPhotos(40, 1);
-            return View("Index2", photos.Select(x => x.ResolveLink()));
+            return View();
         }
 
-        [ChildActionOnly]
-        public ActionResult Menu()
-        {
-            return PartialView();
-        }
     }
 }

@@ -1,0 +1,40 @@
+﻿@model MVC.Models.PhotoPageModel
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+
+            @foreach (var group in Model.Photos.Select((e, i) => new { Item = e, Grouping = (i / 3) }).GroupBy(e => e.Grouping))
+            {
+                <div class="row">
+                    @foreach (var photo in group)
+                    {
+                        <div class="col-md-4">
+                            <div class="well" align="center">
+                                <a href=@Url.Action("Details", "Photo", new { id = photo.Item.Id })>
+                                    <img class="thumbnail img-responsive preview" src=@Url.Content(@photo.Item.PhotoLink) />
+                                </a>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            }
+
+        </div>
+        <div>
+            @if (!Model.PageStatus.PageFirst)
+            {
+                @Html.ActionLink("Previous", "Page", "Photo", new { page = Model.PageStatus.PageNumber - 1 }, new { @class = "btn btn-default"})
+            }
+            @if (!Model.PageStatus.PageLast)
+            {
+                @Html.ActionLink("Next", "Page", "Photo", new { page = Model.PageStatus.PageNumber + 1 }, new { @class = "btn btn-default"})
+            }
+
+        </div>
+    </div>
+</div>
+
+

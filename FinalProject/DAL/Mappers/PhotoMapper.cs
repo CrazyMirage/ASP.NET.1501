@@ -49,7 +49,7 @@ namespace DAL.Mappers
 
         public static DalPhoto ToDalPhoto(Photo photo, User user)
         {
-            if (photo == null)
+            if (photo == null || user == null)
                 return null;
             return new DalPhoto()
             {

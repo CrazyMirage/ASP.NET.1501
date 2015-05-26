@@ -27,6 +27,17 @@ namespace MVC
             bundles.Add(new ScriptBundle("~/bundles/Bootstrap").Include(
                         "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/Likes").Include(
+                        "~/Scripts/custom/like.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Comments").Include(
+                        "~/Scripts/custom/comment.js"));
+
+
+            bundles.Add(new StyleBundle("~/Like/css").Include("~/Content/custom/like.css"));
+            bundles.Add(new StyleBundle("~/Image/css").Include("~/Content/custom/image.css"));
+            bundles.Add(new StyleBundle("~/Comment/css").Include("~/Content/custom/comment.css"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Bootstrap/css").Include(

@@ -13,35 +13,39 @@ namespace DAL.Mappers
     {
         public static Like ToOrmLike(this DalLike like)
         {
+            if (like == null)
+                return null;
             return new Like()
             {
-                PhotoId = like.PhotoId,
-                UserId = like.UserId
+                PhotoId = like.PhotoId
             };
         }
 
         public static void ToOrmLike(this DalLike like, Like exit)
         {
+            if (like == null || exit == null)
+                return;
             exit.PhotoId = like.PhotoId;
-            exit.UserId = like.UserId;
         }
 
-        private static readonly Expression<Func<Like, DalLike>> toDal = like => new DalLike()
+        private static readonly Expression<Func<Like, User, DalLike>> toDal = (like, user) => new DalLike()
         {
             Id = like.Id,
             PhotoId = like.PhotoId,
-            UserId = like.UserId
+            User = user.UserName
         };
 
-        public static Expression<Func<Like, DalLike>> ToDalExpression { get { return toDal; } }
+        public static Expression<Func<Like, User, DalLike>> ToDalExpression { get { return toDal; } }
 
-        public static DalLike ToDalLike(this Like like)
+        public static DalLike ToDalLike(Like like, User user)
         {
+            if (like == null || user == null)
+                return null;
             return new DalLike()
             {
                 Id = like.Id,
                 PhotoId = like.PhotoId,
-                UserId = like.UserId
+                User = user.UserName
             };
         }
     }

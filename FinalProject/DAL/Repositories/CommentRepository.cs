@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    class CommentRepository : IRepository<DalComment>
+    public class CommentRepository : IUserConnectedRepository<DalComment>
     {
         private readonly DbContext context;
 
@@ -23,20 +23,34 @@ namespace DAL.Repositories
 
         public IEnumerable<DalComment> GetAll()
         {
-            return context.Set<Comment>().Select(CommentMapper.ToDalExpression);
+            //return context.Set<Comment>().Select(CommentMapper.ToDalExpression);
+            return context.Set<Comment>().Join(context.Set<User>(),
+                comment => comment.UserId,
+                user => user.Id,
+                CommentMapper.ToDalExpression
+                );
         }
 
         public IEnumerable<DalComment> GetEntries(Expression<Func<DalComment, bool>> f)
         {
-            var visitor = new CustomExpressionVisitor<DalComment, Comment>(Expression.Parameter(typeof(Comment), f.Parameters[0].Name));
-            var expression = Expression.Lambda<Func<Comment, bool>>(visitor.Visit(f.Body), visitor.NewParameterExp);
-            return context.Set<Comment>().Where(expression).Select(CommentMapper.ToDalExpression);
+            //var visitor = new CustomExpressionVisitor<DalComment, Comment>(Expression.Parameter(typeof(Comment), f.Parameters[0].Name));
+            //var expression = Expression.Lambda<Func<Comment, bool>>(visitor.Visit(f.Body), visitor.NewParameterExp);
+            //return context.Set<Comment>().Where(expression).Select(CommentMapper.ToDalExpression);
+            return context.Set<Comment>().Join(context.Set<User>(),
+                comment => comment.UserId,
+                user => user.Id,
+                CommentMapper.ToDalExpression
+                ).Where(f);
         }
 
         public DalComment GetById(int key)
         {
-            var orm = context.Set<Comment>().FirstOrDefault(comment => comment.Id == key);
-            return orm.ToDalComment();
+            var orm = context.Set<Comment>().Where(comment => comment.Id == key).Join(context.Set<User>(),
+                comment => comment.UserId,
+                user => user.Id,
+                CommentMapper.ToDalExpression
+                );
+            return orm.FirstOrDefault();
         }
 
         public DalComment GetByPredicate(Expression<Func<DalComment, bool>> f)
@@ -47,6 +61,7 @@ namespace DAL.Repositories
         public void Create(DalComment entity)
         {
             var comment = entity.ToOrmComment();
+            comment.UserId = ResolveUserId(entity.Author);
             context.Set<Comment>().Add(comment);
         }
 
@@ -62,6 +77,21 @@ namespace DAL.Repositories
             {
                 entity.ToOrmComment(result);
             }
+        }
+
+        public IEnumerable<DalComment> GetEntries(string username)
+        {
+            return context.Set<Comment>().Join(
+                context.Set<User>().Where(user => user.UserName == username),
+                comment => comment.UserId,
+                user => user.Id,
+                CommentMapper.ToDalExpression
+                );
+        }
+
+        private int ResolveUserId(string username)
+        {
+            return context.Set<User>().Where(user => user.UserName == username).Select(user => user.Id).FirstOrDefault();
         }
     }
 }
