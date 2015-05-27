@@ -1,0 +1,5 @@
+﻿@{
+    ViewBag.Title = ViewBag.User;
+}
+
+@Html.Action("PhotoPage", "User", new { page = ViewBag.Page, user = ViewBag.User })

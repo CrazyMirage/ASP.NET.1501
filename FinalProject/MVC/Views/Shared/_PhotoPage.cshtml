@@ -14,7 +14,11 @@
                             <div class="well" align="center">
                                 <a href=@Url.Action("Details", "Photo", new { id = photo.Item.Id })>
                                     <img class="thumbnail img-responsive preview" src=@Url.Content(@photo.Item.PhotoLink) />
-                                </a>
+                                </a>  
+                                <div style="float: left">                                    
+                                    @Html.ActionLink(photo.Item.UserName, "User", "User", new { user = photo.Item.UserName }, null)
+                                </div> 
+                                <span  class="glyphicon glyphicon-heart-empty" style="float: right">@photo.Item.LikesNumber</span>                               
                             </div>
 
                         </div>
@@ -27,13 +31,13 @@
             @if (!Model.PageStatus.PageFirst)
             {
                 <div class="previous">
-                    @Html.ActionLink("Previous", "Page", "Photo", new { page = Model.PageStatus.PageNumber - 1 }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Previous", Model.DefaultDestination.Action , Model.DefaultDestination.Controller, new { page = Model.PageStatus.PagePrevious }, new { @class = "btn btn-default" })
                 </div>
             }
             @if (!Model.PageStatus.PageLast)
             {
                 <div class="next">
-                    @Html.ActionLink("Next", "Page", "Photo", new { page = Model.PageStatus.PageNumber + 1 }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Next", Model.DefaultDestination.Action, Model.DefaultDestination.Controller, new { page = Model.PageStatus.PageNext }, new { @class = "btn btn-default" })
                 </div>
             }
 

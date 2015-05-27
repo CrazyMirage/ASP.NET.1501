@@ -41,15 +41,6 @@ namespace DAL.Repositories
         {
             var visitor = new CustomExpressionVisitor<DalUser, User>(Expression.Parameter(typeof(User), f.Parameters[0].Name));
             var expression = Expression.Lambda<Func<User, bool>> (visitor.Visit(f.Body), visitor.NewParameterExp);
-            //return context.Set<User>().Where(expression).Select((user => user.ToDalUser()));
-            //return context.Set<User>().Where(expression).Select((user => new DalUser()
-            //{
-            //    Id = user.Id,
-            //    UserName = user.UserName,
-            //    Password = user.Password,
-            //    Mail = user.Mail,
-            //    RoleId = user.RoleId
-            //}));
             return context.Set<User>().Where(expression).Select(UserMapper.ToDalExpression);
         }
 
@@ -61,20 +52,12 @@ namespace DAL.Repositories
 
         public DalUser GetByPredicate(Expression<Func<DalUser, bool>> f)
         {
-            //var visitor = new CustomExpressionVisitor<DalUser, User>(Expression.Parameter(typeof(User), f.Parameters[0].Name));
-            //var expression = Expression.Lambda<Func<User, bool>>(visitor.Visit(f.Body), visitor.NewParameterExp);
             return GetEntries(f).FirstOrDefault();
         }
 
         public void Create(DalUser entity)
         {
             var user = entity.ToOrmUser();
-            //    new User()
-            //{
-            //    UserName = entity.UserName,
-            //    Password = entity.Password,
-            //    Mail = entity.Mail
-            //};
             context.Set<User>().Add(user);
         }
 

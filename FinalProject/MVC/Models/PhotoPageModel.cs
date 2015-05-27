@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Routing;
 
 namespace MVC.Models
 {
@@ -10,5 +11,7 @@ namespace MVC.Models
     {
         public PageStatus PageStatus { get; set; }
         public IEnumerable<Photo> Photos { get; set; }
+        public ActionDestination DefaultDestination { get; set; }
+        public object ExtraValues { get; set; }
     }
 }

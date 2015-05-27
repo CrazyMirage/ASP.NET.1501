@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfacies.Repositories
 {
-    public interface IPhotoRepository : IUserConnectedRepository<DalPhoto>
+    public interface IPhotoRepository : IRepository<DalPhoto>
     {
         void EditDescription(int id, string description);
         void AddLike(int id);

@@ -4,9 +4,9 @@
 {
     <div class="comment">
         <div class="detail">
-            @comment.Author
+            @Html.ActionLink(comment.Author, "User", "User", new { user = comment.Author }, null)
             <span style="float:right">
-                @comment.CreatedDateTime.ToString("dd MMMM yyyy")
+                @comment.CreatedDateTime.ToString("ddd MMMM dd yyyy")
             </span>
         </div>
         <div class="comment-text">

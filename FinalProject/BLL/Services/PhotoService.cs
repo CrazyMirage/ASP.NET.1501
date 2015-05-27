@@ -40,7 +40,7 @@ namespace BLL.Services
 
         public IEnumerable<Photo> GetPhotosByUser(string username, int size, int page, out int allRequestSize)
         {
-            var requestResult = photoRepository.GetEntries(username);
+            var requestResult = photoRepository.GetEntries(x => x.Author == username);
             allRequestSize = requestResult.Count();
             return requestResult
                 .OrderByDescending(x => x.CreatedDateTime)
@@ -62,13 +62,9 @@ namespace BLL.Services
         
         public Photo AddPhoto(IFileSaver photo, string username)
         {
-            var path = Path.Combine(username, photo.FileName);
-            
-            if (File.Exists(path))
-            {
-                path = Path.ChangeExtension(Path.Combine(username, GenerateUniqueFileName()), Path.GetExtension(photo.FileName));
-            }
-
+            var path = Path.ChangeExtension(
+                Path.Combine(username, GenerateUniqueFileName()), 
+                Path.GetExtension(photo.FileName));
 
             photo.Save(path);
             var container = new Photo() { CreatedDateTime = DateTime.Now, PhotoLink = path, UserName = username };
@@ -78,13 +74,7 @@ namespace BLL.Services
 
         private string GenerateUniqueFileName()
         {
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            var random = new Random();
-            var result = new string(
-                Enumerable.Repeat(chars, 10)
-              .Select(s => s[random.Next(s.Length)])
-              .ToArray());
-            return result;
+            return Guid.NewGuid().ToString();
         }
 
 

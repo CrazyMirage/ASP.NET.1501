@@ -1,17 +1,15 @@
 ﻿@model MVC.Models.RegisterModel
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Sign up";
 }
-
-<h2>Register</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>RegisterModel</legend>
+        <legend>Sign up</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)

@@ -72,5 +72,12 @@ namespace MVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [Authorize]
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        } 
     }
 }

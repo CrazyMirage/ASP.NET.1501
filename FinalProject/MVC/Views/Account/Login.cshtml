@@ -1,17 +1,16 @@
 ﻿@model MVC.Models.LogOnModel
 
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Sign in";
 }
 
-<h2>Login</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>LogOnModel</legend>
+        <legend>Sign in</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)

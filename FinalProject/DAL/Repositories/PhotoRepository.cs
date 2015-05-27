@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class PhotoRepository : IPhotoRepository //IUserConnectedRepository<DalPhoto>
+    public class PhotoRepository : IPhotoRepository 
     {
         private readonly DbContext context;
 
@@ -28,21 +28,15 @@ namespace DAL.Repositories
                 user => user.Id,
                 PhotoMapper.ToDalExpression
                 );
-
-            //return context.Set<Photo>().Select(PhotoMapper.ToDalExpression);
         }
 
         public IEnumerable<DalPhoto> GetEntries(Expression<Func<DalPhoto, bool>> f)
         {
-            var visitor = new CustomExpressionVisitor<DalPhoto, Photo>(Expression.Parameter(typeof(Photo), f.Parameters[0].Name));
-            var expression = Expression.Lambda<Func<Photo, bool>>(visitor.Visit(f.Body), visitor.NewParameterExp);
-            return context.Set<Photo>().Where(expression).Join(context.Set<User>(),
+            return context.Set<Photo>().Join(context.Set<User>(),
                 photo => photo.UserId,
                 user => user.Id,
                 PhotoMapper.ToDalExpression
-                );
-
-            //return context.Set<Photo>().Where(expression).Select(PhotoMapper.ToDalExpression);
+                ).Where(f);
         }
 
         public DalPhoto GetById(int key)
@@ -52,8 +46,6 @@ namespace DAL.Repositories
                 user => user.Id,
                 PhotoMapper.ToDalExpression
                 );
-            //var orm = context.Set<Photo>().FirstOrDefault(photo => photo.Id == key);
-            //return orm.ToDalPhoto();
             return orm.FirstOrDefault();
         }
 
@@ -86,16 +78,6 @@ namespace DAL.Repositories
         private int ResolveUserId(string username)
         {
             return context.Set<User>().Where(user => user.UserName == username).Select(user => user.Id).FirstOrDefault();
-        }
-
-        public IEnumerable<DalPhoto> GetEntries(string username)
-        {
-            return context.Set<Photo>().Join(
-                context.Set<User>().Where(user => user.UserName == username),
-                photo => photo.UserId,
-                user => user.Id,
-                PhotoMapper.ToDalExpression
-                );
         }
 
         public void EditDescription(int id, string description)

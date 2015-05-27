@@ -49,7 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IPhotoRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Repositories\IUserConnectedRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

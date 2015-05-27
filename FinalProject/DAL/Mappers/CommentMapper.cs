@@ -18,7 +18,7 @@ namespace DAL.Mappers
             return new Comment()
             {
                 PhotoId = comment.PhotoId,
-                UserId = comment.UserId,
+                //UserId = comment.UserId,
                 CreatedDateTime = comment.CreatedDateTime,
                 Text = comment.Text,
                 ParentComment = comment.ParentComment
@@ -30,7 +30,7 @@ namespace DAL.Mappers
             if (comment == null || exit == null)
                 return;
             exit.PhotoId = comment.PhotoId;
-            exit.UserId = comment.UserId;
+            //exit.UserId = comment.UserId;
             exit.CreatedDateTime = comment.CreatedDateTime;
             exit.Text = comment.Text;
             exit.ParentComment = comment.ParentComment;
@@ -41,7 +41,7 @@ namespace DAL.Mappers
         {
             Id = comment.Id,
             PhotoId = comment.PhotoId,
-            UserId = comment.UserId,
+            //UserId = comment.UserId,
             CreatedDateTime = comment.CreatedDateTime,
             Text = comment.Text,
             ParentComment = comment.ParentComment,
@@ -58,7 +58,7 @@ namespace DAL.Mappers
             {
                 Id = comment.Id,
                 PhotoId = comment.PhotoId,
-                UserId = comment.UserId,
+                //UserId = comment.UserId,
                 CreatedDateTime = comment.CreatedDateTime,
                 Text = comment.Text,
                 ParentComment = comment.ParentComment,

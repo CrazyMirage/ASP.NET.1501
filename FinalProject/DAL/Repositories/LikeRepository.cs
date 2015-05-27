@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class LikeRepository : IUserConnectedRepository<DalLike>
+    public class LikeRepository : IRepository<DalLike>
     {
         
         private readonly DbContext context;
@@ -79,14 +79,5 @@ namespace DAL.Repositories
             return context.Set<User>().Where(user => user.UserName == username).Select(user => user.Id).FirstOrDefault();
         }
 
-        public IEnumerable<DalLike> GetEntries(string username)
-        {
-            return context.Set<Like>().Join(
-                context.Set<User>().Where(user => user.UserName == username),
-                like => like.UserId,
-                user => user.Id,
-                LikeMapper.ToDalExpression
-                );
-        }
     }
 }

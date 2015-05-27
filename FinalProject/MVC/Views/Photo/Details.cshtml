@@ -8,7 +8,7 @@
 <fieldset>
 
 
-    <div>
+    <div class="img-container">
         <img class="full" src=@Url.Content(@Model.PhotoLink) alt=""><p></p>
     </div>
 
@@ -23,7 +23,7 @@
             }
             else
             {
-                @Html.DisplayFor(model => model.UserName)
+                @Html.ActionLink(Model.UserName, "User", "User", new { user = Model.UserName }, null)
             }
         </div>
         <div class="col-md-4">

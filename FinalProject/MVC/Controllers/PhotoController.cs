@@ -82,6 +82,10 @@ namespace MVC.Controllers
         public ActionResult Details(int id)
         {
             var photo = photoService.GetPhoto(id);
+
+            if (photo == null)
+                return RedirectToAction("NotFound", "Error");
+
             photo.ResolveLink();
 
             return View(new PhotoModel() { Id = photo.Id,
@@ -104,17 +108,19 @@ namespace MVC.Controllers
         [ChildActionOnly]
         public ActionResult PhotoPage(int page)
         {
-            int photosOnPage = 12;
             int requestSize;
+            int photosOnPage = int.Parse(WebConfigurationManager.AppSettings["PhotosOnPage"]);
             var photos = photoService.GetPhotos(photosOnPage, page, out requestSize);
 
             var model = new PhotoPageModel()
             {
                 Photos = photos.Select(x => x.ResolveLink()),
-                PageStatus = new PageStatus { PageNumber = page, PageLast = requestSize - (page * photosOnPage) <= 0 }
+                PageStatus = new PageStatus { PageNumber = page, PageLast = requestSize - (page * photosOnPage) <= 0 },
+                DefaultDestination = new ActionDestination(){Action = "Page", Controller = "Photo"}
             };
 
             return PartialView("_PhotoPage", model);
         }
+
     }
 }

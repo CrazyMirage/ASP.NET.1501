@@ -14,10 +14,10 @@ namespace BLL.Services
 {
     public class CommentService : IPhotoCommentService
     {
-        IUserConnectedRepository<DalComment> commentRepository;
+        IRepository<DalComment> commentRepository;
         IUnitOfWork unit;
 
-        public CommentService(IPhotoRepository photoRepository, IUserConnectedRepository<DalComment> commentRepository, IUnitOfWork unit)
+        public CommentService(IPhotoRepository photoRepository, IRepository<DalComment> commentRepository, IUnitOfWork unit)
         {
             this.commentRepository = commentRepository;
             this.unit = unit;

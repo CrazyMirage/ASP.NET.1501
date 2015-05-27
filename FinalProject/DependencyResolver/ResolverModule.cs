@@ -26,7 +26,7 @@ namespace DependencyResolver
 
             Bind<IPhotoRepository>().To<PhotoRepository>().InRequestScope();
             Bind<IRepository<DalLike>>().To<LikeRepository>().InRequestScope();
-            Bind<IUserConnectedRepository<DalComment>>().To<CommentRepository>().InRequestScope();
+            Bind<IRepository<DalComment>>().To<CommentRepository>().InRequestScope();
 
             Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
 

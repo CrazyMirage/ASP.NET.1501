@@ -13,6 +13,6 @@ namespace DAL.Interfacies.DTO
         public int PhotoId { get; set; }
 
         public string User { get; set; } 
-        public int UserId { get; set; } //must be removed
+        //public int UserId { get; set; }
     }
 }

@@ -7,14 +7,18 @@
         <div id="navbar" class="navbar-collapse collapse navbar-right">
             @if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
+                using (Html.BeginForm("SignOut", "Account", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+                {
+                    <button type="submit" class="btn btn-danger" >Sign out</button>
+                }
                 using (Html.BeginForm("AddPhoto", "Photo", FormMethod.Get, new { @class = "navbar-form navbar-right" }))
                 {
-                    <button type="submit" class="btn btn-success" aria-label="Left Align">
+                    <button type="submit" class="btn btn-success" aria-label="Left Align" style="margin-right: -20px">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </button>
                 }
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink(HttpContext.Current.User.Identity.Name, "Index", "Home")</li>
+                    <li>@Html.ActionLink(HttpContext.Current.User.Identity.Name, "User", "User", new { user = HttpContext.Current.User.Identity.Name }, null)</li>
                 </ul>
 
             }

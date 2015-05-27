@@ -17,3 +17,7 @@ img.full{
 .image-description{
     margin-bottom: 10px;
 }
+
+.img-container{
+    text-align:center;
+}

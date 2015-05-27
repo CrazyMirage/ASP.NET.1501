@@ -25,11 +25,9 @@ namespace DAL
             }
         }
 
-        public void Dispose() //already why this method need??
+        public void Dispose()
         {
             Dispose(true);
-
-            //GC.SuppressFinalize(this);// Why this???
         }
 
         private void Dispose(bool disposing)
