@@ -30,10 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System-Web-Helpers.dll.1.0.1\lib\Net40\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System-Web-Helpers.dll.1.0.1\lib\Net40\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,10 +59,16 @@
     <Compile Include="Mappers\PhotoMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WCFServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\CommentService.cs" />
     <Compile Include="Services\LikeService.cs" />
     <Compile Include="Services\PhotoService.cs" />
+    <Compile Include="Services\WCFCommentServiceAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL.Interfacies\BLL.Interfacies.csproj">
@@ -60,6 +79,42 @@
       <Project>{48103950-4336-4132-8ab2-a3eb6eccf202}</Project>
       <Name>DAL.Interfacies</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Service References\WCFServiceReference\BLL.WCFServiceReference.Comment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WCFServiceReference\WCFCommentService.wsdl" />
+    <None Include="Service References\WCFServiceReference\WCFCommentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFServiceReference\WCFCommentService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFServiceReference\WCFCommentService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\nugetexample.js" />
+    <None Include="Service References\WCFServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WCFServiceReference\configuration.svcinfo" />
+    <None Include="Service References\WCFServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\WCFServiceReference\WCFCommentService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WCFServiceReference\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,8 +6,6 @@ using DAL.Interfacies.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BLL.Mappers;
 
 namespace BLL.Services
@@ -38,7 +36,7 @@ namespace BLL.Services
                 .Select(x => x.ToBll());
         }
 
-        public IEnumerable<Comment> GetCommentsByPhoto(int photoId, int last)
+        public IEnumerable<Comment> GetLastComments(int photoId, int last)
         {
             return commentRepository
                 .GetEntries(x => x.PhotoId == photoId)

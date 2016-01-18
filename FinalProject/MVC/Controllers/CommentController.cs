@@ -33,7 +33,7 @@ namespace MVC.Controllers
                     Text = comment
                 }, id);
 
-                var comments = commentService.GetCommentsByPhoto(id, last);
+                var comments = commentService.GetLastComments(id, last);
                 return Json(comments);
             }
             return Json(null);

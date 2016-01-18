@@ -10,6 +10,7 @@ namespace ORM
         public GalleryModel()
             : base("name=Gallery")
         {
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
         public virtual DbSet<Comment> Comments { get; set; }

@@ -33,7 +33,7 @@ namespace DependencyResolver
             Bind<IAccountService>().To<AccountService>();
             Bind<IPhotoService>().To<PhotoService>();
             Bind<IPhotoLikeService>().To<LikeService>();
-            Bind<IPhotoCommentService>().To<CommentService>();
+            Bind<IPhotoCommentService>().To<WCFCommentServiceAdapter>();
 
             Bind<DbContext>().To<GalleryModel>().InRequestScope();
 

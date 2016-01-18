@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{B7006D2B-5AAC-4BF2-9E84-6BA2CC1B5F99}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM", "ORM\ORM.csproj", "{657D9071-47C6-4027-8EDC-DBC8870F59D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyResolver", "DependencyResolver\DependencyResolver.csproj", "{D1052ACF-780A-42E4-8B7C-B87718572949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServices", "WcfServices\WcfServices.csproj", "{59DF86F1-A422-4364-9DC3-5D3FFC2893D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{D1052ACF-780A-42E4-8B7C-B87718572949}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1052ACF-780A-42E4-8B7C-B87718572949}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1052ACF-780A-42E4-8B7C-B87718572949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59DF86F1-A422-4364-9DC3-5D3FFC2893D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59DF86F1-A422-4364-9DC3-5D3FFC2893D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59DF86F1-A422-4364-9DC3-5D3FFC2893D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59DF86F1-A422-4364-9DC3-5D3FFC2893D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
